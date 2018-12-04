@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!--<link rel="stylesheet" th:href="@{../frontEnd.css}">-->
+    <title>Title</title>
+</head>
+<body>
+<p >Hej</p>
+<div th:if="${#request.isUserInRole('ROLE_CHAUFFØR')}">Chauffør kun!</div>
+
+<!--<a th:href="@{/courseInfo}">-->
+    <!--<button>Courses</button>-->
+<!--</a>-->
+</body>
+</html>
