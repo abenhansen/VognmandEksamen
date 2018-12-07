@@ -27,10 +27,10 @@
             <a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">
                 <button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>
             </a>
-            <!--<a onclick="return confirm('Do you reject the students choice of courses?')" th:href="${'courseAdmin/courseRemove/' + student.id}">-->
-                <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Reject</button>-->
-            <!--</a>-->
-        <!--</td>-->
+            <a onclick="return confirm('Do you reject the students choice of courses?')" th:href="${'ansatInfo/ansatSlet/' + bruger.id}">
+                <button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Slet Chauffør</button>
+            </a>
+        </td>
     </tr>
     </tbody>
 </table>

@@ -35,7 +35,7 @@ public class ChaufførController {
     @PostMapping("/ansatInfo/opretAnsat")
     public String opretAnsat(@ModelAttribute Bruger bruger) {
         brugerrepo.save(bruger);
-        return "redirect:/ansatInfo";
+        return "redirect:../";
     }
 
     @GetMapping("/ansatInfo/redigerAnsat/{id}")
@@ -47,10 +47,16 @@ public class ChaufførController {
     }
 
     @PostMapping("/ansatInfo/redigerAnsat")
-    public String courseEdit(@ModelAttribute Bruger bruger ){
+    public String redigerAnsat(@ModelAttribute Bruger bruger ){
         brugerrepo.save(bruger);
-        return "redirect:/ansatInfo";
+        return "redirect:../";
 
+    }
+
+    @GetMapping("/ansatInfo/ansatSlet/{id}")
+    public String ansatSlet(@PathVariable("id") long id) {
+        brugerrepo.deleteById(id);
+        return "redirect:/ansatInfo";
     }
 
 }
