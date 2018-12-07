@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Brugere {
+public class Bruger {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,19 +16,24 @@ public class Brugere {
     private String password;
     private int aktiv;
     private String rolle;
+    private String navn;
+    private String email;
+    private int nummer;
 
-    public Brugere(String brugernavn, String password, int aktiv, String rolle) {
+    public Bruger(String brugernavn, String password, int aktiv, String rolle, String navn, String email, int nummer) {
         this.brugernavn = brugernavn;
         this.password = password;
         this.aktiv = aktiv;
         this.rolle = rolle;
+        this.navn = navn;
+        this.email = email;
+        this.nummer = nummer;
     }
 
-    public Brugere (){
+    public Bruger () {
+
 
     }
-
-
 
     public long getId() {
         return id;
@@ -68,5 +73,29 @@ public class Brugere {
 
     public void setRolle(String rolle) {
         this.rolle = rolle;
+    }
+
+    public String getNavn() {
+        return navn;
+    }
+
+    public void setNavn(String navn) {
+        this.navn = navn;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getNummer() {
+        return nummer;
+    }
+
+    public void setNummer(int nummer) {
+        this.nummer = nummer;
     }
 }

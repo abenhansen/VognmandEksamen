@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--<link rel="stylesheet" th:href="@{../frontEnd.css}">-->
+</head>
+<body>
+<header>
+</header>
+<a th:href="@{ansatInfo/opretAnsat}">
+    <button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Opret Chauffør</button>
+</a>
+<table>
+    <thead>
+    <tr>
+        <th>Chauffør</th>
+        <th>Email</th>
+        <th>Nummer</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  th:if="${bruger.rolle}== ROLE_CHAUFFØR" th:each="bruger: ${brugere}">
+        <td th:text="${bruger.navn}"/>
+        <td th:text="${bruger.email}"/>
+        <td th:text="${bruger.nummer}"/>
+        <td>
+            <a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">
+                <button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>
+            </a>
+            <!--<a onclick="return confirm('Do you reject the students choice of courses?')" th:href="${'courseAdmin/courseRemove/' + student.id}">-->
+                <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Reject</button>-->
+            <!--</a>-->
+        <!--</td>-->
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

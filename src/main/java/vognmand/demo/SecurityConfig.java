@@ -23,9 +23,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         auth.jdbcAuthentication().dataSource(dataSource)
                 .usersByUsernameQuery(
-                        "select brugernavn,password, aktiv from brugere where brugernavn=?")
+                        "select brugernavn,password, aktiv from bruger where brugernavn=?")
                 .authoritiesByUsernameQuery(
-                        "select brugernavn, rolle from brugere where brugernavn=?");
+                        "select brugernavn, rolle from bruger where brugernavn=?");
     }
 
     @Override
@@ -33,9 +33,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
 //                .antMatchers("/", "/mainPage").access("hasRole('ROLE_ADMIN')")
-                .antMatchers("/","/hovedSide")
+                .antMatchers("/","/hovedSide", "/ansatInfo")
                 .access("hasAnyAuthority('ROLE_CHAUFFØR','ROLE_ADMIN','ROLE_KONTOR')")
-                .antMatchers("/admin/").access("hasRole('ROLE_ADMIN')")
+                .antMatchers("/admin/","/ansatInfo/opretAnsat", "/ansatInfo/redigerAnsat/{id}")
+                .access("hasAuthority('ROLE_ADMIN')")
                 .and()
                 .formLogin().loginPage("/login").failureUrl("/login?error")
                 .usernameParameter("brugernavn").passwordParameter("password")

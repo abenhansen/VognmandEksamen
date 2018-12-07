@@ -8,8 +8,9 @@
 <div >
     <div>
         <h1>Enter information</h1>
-        <form method="Post" th:action="@{/ansatInfo/opretAnsat}">
+        <form method="Post" th:action="@{/ansatInfo/redigerAnsat}">
             <div>
+                <input readonly required th:field="${bruger.id}">
                 <label for="navn">Chauffør</label>
                 <input type="text"  id="navn" placeholder="Indast navn" th:field="${bruger.navn}"
                        required="true"/>
