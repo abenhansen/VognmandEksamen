@@ -3,17 +3,14 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Security with Spring Boot</title>
 </head>
-<style>
-    button, input  {
-        background-color: cornflowerblue;
-        border-radius: 1px;
-        border-color: cornflowerblue;
-        width: 10%;
-        text-align-all: center;
-    }
-</style>
 <body style="font-family: sans-serif">
 <h1>Access is Denied!</h1>
 <a th:href="@{/}"><button>Try again</button></a>

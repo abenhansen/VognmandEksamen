@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <!--<link rel="stylesheet" th:href="@{../frontEnd.css}">-->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<header>
-</header>
+
 <a th:href="@{ansatInfo/opretAnsat}">
     <button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Opret Chauffør</button>
 </a>
-<table>
+<table class="table">
     <thead>
     <tr>
         <th>Chauffør</th>
