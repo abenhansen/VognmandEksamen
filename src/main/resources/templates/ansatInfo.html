@@ -1,38 +1,82 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <!--<link rel="stylesheet" th:href="@{../frontEnd.css}">-->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <header>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img style="padding-right: 20px"  src="https://i.imgur.com/ufPqJzL.png" alt="Kurt Hansen Logo" height="50" width="273">
+            </div>
+            <ul class="nav navbar-nav">
+                <li>
+                    <form th:action="@{/ansatInfo}" method="get">
+                        <input style="height: 50px" class="btn btn-secondary" type="submit" value="Chauffører" />
+                    </form>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li>
+                    <form th:action="@{/kontorInfo}" method="get">
+                    </form>
+                    <input style="height: 50px" class="btn btn-secondary" type="submit" value="Kontormedarbejdere" />
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li>
+                    <form th:action="@{/courses}" method="get">
+                        <input style="height: 50px" class="btn btn-secondary" type="submit" value="Ugeplan" />
+                    </form>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form th:action="@{/logout}" method="post">
+                        <input style="height: 50px" class="btn btn btn-danger" type="submit" value="Sign Out" />
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </header>
-<a th:href="@{ansatInfo/opretAnsat}">
-    <button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Opret Chauffør</button>
-</a>
-<table>
-    <thead>
-    <tr>
-        <th>Chauffør</th>
-        <th>Email</th>
-        <th>Nummer</th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr  th:if="${bruger.rolle}== ROLE_CHAUFFØR" th:each="bruger: ${brugere}">
-        <td th:text="${bruger.navn}"/>
-        <td th:text="${bruger.email}"/>
-        <td th:text="${bruger.nummer}"/>
-        <td>
-            <a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">
-                <button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>
-            </a>
-            <a onclick="return confirm('Do you reject the students choice of courses?')" th:href="${'ansatInfo/ansatSlet/' + bruger.id}">
-                <button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Slet Chauffør</button>
-            </a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+
+<div class="container" style="width: 50%">
+    <a th:href="@{ansatInfo/opretAnsat}">
+        <button class="btn btn-success" th:if="${#request.isUserInRole('ROLE_ADMIN')}">Opret Chauffør</button>
+    </a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Chauffør</th>
+            <th>Email</th>
+            <th>Nummer</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  th:if="${bruger.rolle}== ROLE_CHAUFFØR" th:each="bruger: ${brugere}">
+            <td th:text="${bruger.navn}"/>
+            <td th:text="${bruger.email}"/>
+            <td th:text="${bruger.nummer}"/>
+            <td>
+                <a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">
+                    <button class="btn btn-info" th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>
+                </a>
+                <a onclick="return confirm('Do you reject the students choice of courses?')" th:href="${'ansatInfo/ansatSlet/' + bruger.id}">
+                    <button class="btn btn-danger" th:if="${#request.isUserInRole('ROLE_ADMIN')}">Slet Chauffør</button>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
 </body>
 </html>
