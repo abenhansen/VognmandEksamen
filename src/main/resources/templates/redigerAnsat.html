@@ -3,42 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div >
-    <div>
+
+<header>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img src="../static/swdlogoFIXED.png" height="117" width="527"/>
+            </div>
+            <ul class="nav navbar-nav">
+                <li>
+                    <form th:action="@{/courses}" method="get">
+                        <input style="height: 50px" class="btn btn-secondary" type="submit" value="Chauffører" />
+                    </form>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li>
+                    <form th:action="@{/courses}" method="get">
+                    </form>
+                    <input style="height: 50px" class="btn btn-secondary" type="submit" value="Kontormedarbejdere" />
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li>
+                    <form th:action="@{/courses}" method="get">
+                        <input style="height: 50px" class="btn btn-secondary" type="submit" value="Ugeplan" />
+                    </form>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form th:action="@{/logout}" method="post">
+                        <input style="height: 50px" class="btn btn btn-danger" type="submit" value="Sign Out" />
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="container" style="width: 50%">
+    <div class="form-group">
         <h1>Enter information</h1>
         <form method="Post" th:action="@{/ansatInfo/redigerAnsat}">
             <div>
-                <input readonly required th:field="${bruger.id}">
+                <input class="form-control" readonly required th:field="${bruger.id}">
                 <label for="navn">Chauffør</label>
-                <input type="text"  id="navn" placeholder="Indast navn" th:field="${bruger.navn}"
+                <input class="form-control" type="text"  id="navn" placeholder="Indast navn" th:field="${bruger.navn}"
                        required="true"/>
                 <label for="email">Email</label>
-                <input type="text"  id="email" placeholder="Enter email" th:field="${bruger.email}"
+                <input class="form-control" type="text"  id="email" placeholder="Enter email" th:field="${bruger.email}"
                        required="true"/>
                 <label for="nummer">Telefonnummer</label>
-                <input type="number"  id="nummer" min="1" max="99999999" placeholder="0"
+                <input class="form-control" type="number"  id="nummer" min="1" max="99999999" placeholder="0"
                        th:field="${bruger.nummer}" required="true"/>
-                <select th:field="${bruger.rolle}">
+                <label>Rolle</label>
+                <select class="form-control" th:field="${bruger.rolle}">
                     <option value="ROLE_CHAUFFØR">Chauffør</option>
                     <option value="ROLE_KONTOR">Kontormedarbejder</option>
                 </select>
-                <select th:field="${bruger.aktiv}">
+                <label>Aktiv/Ikke Aktiv</label>
+                <select class="form-control" th:field="${bruger.aktiv}">
                     <option value="1">Aktiv</option>
                     <option value="2">Inaktiv</option>
                 </select>
                 <label for="brugernavn">Brugernavn</label>
-                <input type="text"  id="brugernavn" placeholder="Indast brugernavn" th:field="${bruger.brugernavn}"
+                <input class="form-control" type="text"  id="brugernavn" placeholder="Indast brugernavn" th:field="${bruger.brugernavn}"
                        required="true"/>
                 <label for="password">Password</label>
-                <input type="text"  id="password" placeholder="Indast password" th:field="${bruger.password}"
+                <input class="form-control" type="text"  id="password" placeholder="Indast password" th:field="${bruger.password}"
                        required="true"/>
             </div>
 
 
-            <button type="submit" class="btn btn-outline-success">Save</button>
-            <button type="reset" class="btn btn-outline-danger">Reset</button>
+            <button type="submit" class="btn btn-success">Save</button>
+            <button type="reset" class="btn btn-danger">Reset</button>
         </form>
     </div>
 </div>

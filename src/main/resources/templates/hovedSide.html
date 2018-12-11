@@ -12,6 +12,45 @@
             src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<header>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            <img style="padding-right: 20px"  src="https://i.imgur.com/ufPqJzL.png" alt="Kurt Hansen Logo" height="50" width="273">
+            </div>
+            <ul class="nav navbar-nav">
+                <li>
+                    <form th:action="@{/courses}" method="get">
+                        <input style="height: 50px" class="btn btn-secondary" type="submit" value="Chauffører" />
+                    </form>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li>
+                    <form th:action="@{/courses}" method="get">
+                    </form>
+                    <input style="height: 50px" class="btn btn-secondary" type="submit" value="Kontormedarbejdere" />
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li>
+                    <form th:action="@{/courses}" method="get">
+                        <input style="height: 50px" class="btn btn-secondary" type="submit" value="Ugeplan" />
+                    </form>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form th:action="@{/logout}" method="post">
+                        <input style="height: 50px" class="btn btn btn-danger" type="submit" value="Sign Out" />
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+
 <p >Hej</p>
 <div th:if="${#request.isUserInRole('ROLE_CHAUFFØR')}">Chauffør kun!</div>
 
