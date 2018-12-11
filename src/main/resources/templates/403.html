@@ -12,6 +12,45 @@
     <title>Security with Spring Boot</title>
 </head>
 <body style="font-family: sans-serif">
+
+<header>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img style="padding-right: 20px"  src="https://i.imgur.com/ufPqJzL.png" alt="Kurt Hansen Logo" height="50" width="273">
+            </div>
+            <ul class="nav navbar-nav">
+                <li>
+                    <form th:action="@{/ansatInfo}" method="get">
+                        <input style="height: 50px" class="btn btn-secondary" type="submit" value="Chauffører" />
+                    </form>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li>
+                    <form th:action="@{/kontorInfo}" method="get">
+                    </form>
+                    <input style="height: 50px" class="btn btn-secondary" type="submit" value="Kontormedarbejdere" />
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li>
+                    <form th:action="@{/courses}" method="get">
+                        <input style="height: 50px" class="btn btn-secondary" type="submit" value="Ugeplan" />
+                    </form>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form th:action="@{/logout}" method="post">
+                        <input style="height: 50px" class="btn btn btn-danger" type="submit" value="Sign Out" />
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
 <h1>Access is Denied!</h1>
 <a th:href="@{/}"><button>Try again</button></a>
 <form th:action="@{/logout}" method="post">
