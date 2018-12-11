@@ -39,47 +39,50 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <form th:action="@{/logout}" method="post">
-                        <input style="height: 50px" class="btn btn btn-danger" type="submit" value="Sign Out" />
+                        <input style="height: 50px" class="btn btn btn-danger" type="submit" value="Log ud" />
                     </form>
                 </li>
             </ul>
         </div>
     </nav>
 </header>
-<a th:href="@{opgaveList/opretOpgave}">
-    <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Opret Opgave</button>
-</a>
-<table>
-    <thead>
-    <tr>
-        <th>Chauffør</th>
-        <th>Prioritet</th>
-        <th>Firma</th>
-        <th>Kontaktperson</th>
-        <th>Telefonnummer</th>
-        <th>Email</th>
-        <th>Transport Type</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr  th:each="opgave: ${opgaver}">
-        <td th:text="${opgave.brugere}"/>
-        <td th:text="${opgave.prioritet}"/>
-        <td th:text="${opgave.firma}"/>
-        <td th:text="${opgave.kontaktPerson}"/>
-        <td th:text="${opgave.kundeTlf}"/>
-        <td th:text="${opgave.email}"/>
-        <td th:text="${opgave.transportType}"/>
-        <td>
-            <!--<a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">-->
+
+<div class="container" style="width: 50%">
+    <a th:href="@{opgaveList/opretOpgave}">
+        <button class="btn btn-success" th:if="${#request.isUserInRole('ROLE_KONTOR')}">Opret Opgave</button>
+    </a>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Chauffør</th>
+            <th>Prioritet</th>
+            <th>Firma</th>
+            <th>Kontaktperson</th>
+            <th>Telefonnummer</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  th:each="opgave: ${opgaver}">
+            <td th:text="${opgave.brugere}"/>
+            <td th:text="${opgave.prioritet}"/>
+            <td th:text="${opgave.firma}"/>
+            <td th:text="${opgave.kontaktPerson}"/>
+            <td th:text="${opgave.kundeTlf}"/>
+            <td th:text="${opgave.email}"/>
+            <td>
+                <!--<a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">-->
                 <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>-->
-            <!--</a>-->
-            <!--<a onclick="return confirm('Do you reject the students choice of courses?')" th:href="${'ansatInfo/ansatSlet/' + bruger.id}">-->
+                <!--</a>-->
+                <!--<a onclick="return confirm('Do you reject the students choice of courses?')" th:href="${'ansatInfo/ansatSlet/' + bruger.id}">-->
                 <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Slet Chauffør</button>-->
-            <!--</a>-->
-        <!--</td>-->
-    </tr>
-    </tbody>
-</table>
+                <!--</a>-->
+                <!--</td>-->
+        </tr>
+        </tbody>
+    </table>
+</div>
+
 </body>
 </html>

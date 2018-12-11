@@ -40,20 +40,16 @@
 
 
 <div>
-    <!--LOGO GOES HERE!-->
-    <div class="container" style="width: 25%">
-        <img src="" width="400 px" height="200 px">
-    </div>
-
-
     <div class="form-group container" style="width: 25%">
-        <h5>Sign In</h5>
-
+        <img src="https://i.imgur.com/ufPqJzL.png" width="100%" height="117" style="padding-right: 20px">
+        <div th:if="!${param.logout}">
+            <h3 style="color: blue">Log ind</h3>
+        </div>
         <div th:if="${param.error}">
             <p style="color: red">Brugernavn eller kodeord er forkert, prøv igen!</p>
         </div>
         <div th:if="${param.logout}">
-            <h1 style="color: blue">Logged out.</h1>
+            <h1 style="color: blue">Du er nu logget ud.</h1>
         </div>
         <form th:action="@{/login}" method="post">
             <div class="form-group">
@@ -64,7 +60,7 @@
                 <label for="password">Password: </label>
                 <input type="password" value="chauffør" class="form-control" id="password" placeholder="Enter Password" name="password"/>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            <button type="submit" class="btn btn-success">Log ind</button>
         </form>
 
     </div>
