@@ -14,17 +14,19 @@ public class Opgave {
     private int kundeTlf;
     private String email;;
     private int prioritet;
+    private String transportType;
     @ManyToMany
     @JoinColumn(name = "id")
    private List<Bruger> brugere;
 
 
-    public Opgave(String firma, String kontaktPerson, int kundeTlf, String email, int prioritet, List<Bruger> brugere) {
+    public Opgave(String firma, String kontaktPerson, int kundeTlf, String email, int prioritet,String transportType, List<Bruger> brugere) {
         this.firma = firma;
         this.kontaktPerson = kontaktPerson;
         this.kundeTlf = kundeTlf;
         this.email = email;
         this.prioritet = prioritet;
+        this.transportType = transportType;
         this.brugere = brugere;
     }
 
@@ -77,6 +79,14 @@ public class Opgave {
 
     public void setPrioritet(int prioritet) {
         this.prioritet = prioritet;
+    }
+
+    public String getTransportType() {
+        return transportType;
+    }
+
+    public void setTransportType(String transportType) {
+        this.transportType = transportType;
     }
 
     public List<Bruger> getBrugere() {

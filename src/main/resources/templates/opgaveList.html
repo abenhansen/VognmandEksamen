@@ -58,6 +58,7 @@
         <th>Kontaktperson</th>
         <th>Telefonnummer</th>
         <th>Email</th>
+        <th>Transport Type</th>
     </tr>
     </thead>
     <tbody>
@@ -68,6 +69,7 @@
         <td th:text="${opgave.kontaktPerson}"/>
         <td th:text="${opgave.kundeTlf}"/>
         <td th:text="${opgave.email}"/>
+        <td th:text="${opgave.transportType}"/>
         <td>
             <!--<a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">-->
                 <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>-->
