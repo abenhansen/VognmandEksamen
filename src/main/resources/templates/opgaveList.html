@@ -52,24 +52,19 @@
 <table>
     <thead>
     <tr>
+        <th>Mandag</th>
+    </tr>
+    <tr>
         <th>Chauffør</th>
         <th>Prioritet</th>
-        <th>Firma</th>
-        <th>Kontaktperson</th>
-        <th>Telefonnummer</th>
-        <th>Email</th>
-        <th>Transport Type</th>
+        <th>Adresse</th>
     </tr>
     </thead>
     <tbody>
-    <tr  th:each="opgave: ${opgaver}">
+    <tr th:if="${opgave.dag}== Mandag" th:each="opgave: ${opgaver}">
         <td th:text="${opgave.brugere}"/>
         <td th:text="${opgave.prioritet}"/>
-        <td th:text="${opgave.firma}"/>
-        <td th:text="${opgave.kontaktPerson}"/>
-        <td th:text="${opgave.kundeTlf}"/>
-        <td th:text="${opgave.email}"/>
-        <td th:text="${opgave.transportType}"/>
+        <td th:text="${opgave.adresse}"/>
         <td>
             <!--<a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">-->
                 <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>-->
@@ -78,6 +73,114 @@
                 <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Slet Chauffør</button>-->
             <!--</a>-->
         <!--</td>-->
+    </tr>
+    </tbody>
+</table>
+<table>
+    <thead>
+    <tr>
+        <th>Tirsdag</th>
+    </tr>
+    <tr>
+        <th>Chauffør</th>
+        <th>Prioritet</th>
+        <th>Adresse</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${opgave.dag}== Tirsdag" th:each="opgave: ${opgaver}">
+        <td th:text="${opgave.brugere}"/>
+        <td th:text="${opgave.prioritet}"/>
+        <td th:text="${opgave.adresse}"/>
+        <td>
+            <!--<a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">-->
+            <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>-->
+            <!--</a>-->
+            <!--<a onclick="return confirm('Do you reject the students choice of courses?')" th:href="${'ansatInfo/ansatSlet/' + bruger.id}">-->
+            <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Slet Chauffør</button>-->
+            <!--</a>-->
+            <!--</td>-->
+    </tr>
+    </tbody>
+</table>
+<table>
+    <thead>
+    <tr>
+        <th>Onsdag</th>
+    </tr>
+    <tr>
+        <th>Chauffør</th>
+        <th>Prioritet</th>
+        <th>Adresse</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${opgave.dag}== Onsdag" th:each="opgave: ${opgaver}">
+        <td th:text="${opgave.brugere}"/>
+        <td th:text="${opgave.prioritet}"/>
+        <td th:text="${opgave.adresse}"/>
+        <td>
+            <!--<a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">-->
+            <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>-->
+            <!--</a>-->
+            <!--<a onclick="return confirm('Do you reject the students choice of courses?')" th:href="${'ansatInfo/ansatSlet/' + bruger.id}">-->
+            <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Slet Chauffør</button>-->
+            <!--</a>-->
+            <!--</td>-->
+    </tr>
+    </tbody>
+</table>
+<table>
+    <thead>
+    <tr>
+        <th>Torsdag</th>
+    </tr>
+    <tr>
+        <th>Chauffør</th>
+        <th>Prioritet</th>
+        <th>Adresse</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${opgave.dag}== Torsdag" th:each="opgave: ${opgaver}">
+        <td th:text="${opgave.brugere}"/>
+        <td th:text="${opgave.prioritet}"/>
+        <td th:text="${opgave.adresse}"/>
+        <td>
+            <!--<a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">-->
+            <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>-->
+            <!--</a>-->
+            <!--<a onclick="return confirm('Do you reject the students choice of courses?')" th:href="${'ansatInfo/ansatSlet/' + bruger.id}">-->
+            <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Slet Chauffør</button>-->
+            <!--</a>-->
+            <!--</td>-->
+    </tr>
+    </tbody>
+</table>
+<table>
+    <thead>
+    <tr>
+        <th>Fredag</th>
+    </tr>
+    <tr>
+        <th>Chauffør</th>
+        <th>Prioritet</th>
+        <th>Adresse</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${opgave.dag}== Fredag" th:each="opgave: ${opgaver}">
+        <td th:text="${opgave.brugere}"/>
+        <td th:text="${opgave.prioritet}"/>
+        <td th:text="${opgave.adresse}"/>
+        <td>
+            <!--<a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">-->
+            <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>-->
+            <!--</a>-->
+            <!--<a onclick="return confirm('Do you reject the students choice of courses?')" th:href="${'ansatInfo/ansatSlet/' + bruger.id}">-->
+            <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Slet Chauffør</button>-->
+            <!--</a>-->
+            <!--</td>-->
     </tr>
     </tbody>
 </table>

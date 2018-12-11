@@ -10,23 +10,27 @@ public class Opgave {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String firma;
+    private String adresse;
     private String kontaktPerson;
     private int kundeTlf;
     private String email;;
     private int prioritet;
     private String transportType;
+    private String dag;
     @ManyToMany
     @JoinColumn(name = "id")
    private List<Bruger> brugere;
 
 
-    public Opgave(String firma, String kontaktPerson, int kundeTlf, String email, int prioritet,String transportType, List<Bruger> brugere) {
+    public Opgave(String firma, String adresse, String kontaktPerson, int kundeTlf, String email, int prioritet, String transportType, String dag, List<Bruger> brugere) {
         this.firma = firma;
+        this.adresse = adresse;
         this.kontaktPerson = kontaktPerson;
         this.kundeTlf = kundeTlf;
         this.email = email;
         this.prioritet = prioritet;
         this.transportType = transportType;
+        this.dag = dag;
         this.brugere = brugere;
     }
 
@@ -47,6 +51,14 @@ public class Opgave {
 
     public void setFirma(String firma) {
         this.firma = firma;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
     }
 
     public String getKontaktPerson() {
@@ -87,6 +99,14 @@ public class Opgave {
 
     public void setTransportType(String transportType) {
         this.transportType = transportType;
+    }
+
+    public String getDag() {
+        return dag;
+    }
+
+    public void setDag(String dag) {
+        this.dag = dag;
     }
 
     public List<Bruger> getBrugere() {

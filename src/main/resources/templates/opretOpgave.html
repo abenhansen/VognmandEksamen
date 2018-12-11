@@ -67,6 +67,9 @@
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
+                <label for="adresse">Adresse</label>
+                <input type="text"  id="adresse" placeholder="Indtast adresse for opgaven" th:field="${opgave.adresse}"
+                       required="true"/>
                 <label for="firma">Firma</label>
                 <input type="text"  id="firma" placeholder="Indtast firma navn" th:field="${opgave.firma}"
                        required="true"/>
@@ -79,6 +82,14 @@
                 <label for="email">Email</label>
                 <input type="text"  id="email" placeholder="Indtast email" th:field="${opgave.email}"
                        required="true"/>
+                <label>Vælg dag for opgaven</label>
+                <select th:field="${opgave.dag}">
+                    <option value="Mandag">Mandag</option>
+                    <option value="Tirsdag">Tirsdag</option>
+                    <option value="Onsdag">Onsdag</option>
+                    <option value="Torsdag">Torsdag</option>
+                    <option value="Fredag">Fredag</option>
+                </select>
                 <label for="transportType">Transport Type</label>
                 <input type="text"  id="transportType" placeholder="Indtast type af transport" th:field="${opgave.transportType}"
                        required="true"/>
