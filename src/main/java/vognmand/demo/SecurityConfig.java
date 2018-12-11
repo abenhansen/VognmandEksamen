@@ -33,10 +33,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
 //                .antMatchers("/", "/mainPage").access("hasRole('ROLE_ADMIN')")
-                .antMatchers("/","/hovedSide", "/ansatInfo")
+                .antMatchers("/","/hovedSide", "/ansatInfo", "/opgaveList")
                 .access("hasAnyAuthority('ROLE_CHAUFFØR','ROLE_ADMIN','ROLE_KONTOR')")
-                .antMatchers("/admin/","/ansatInfo/opretAnsat","/kontorInfo/opretAnsat",
-                        "/ansatInfo/redigerAnsat/{id}","/kontorInfo/redigerAnsat/{id}","/kontorInfo/ansatSlet/{id}","/ansatInfo/ansatSlet/{id}")
+                .antMatchers("opgaveList/opretOpgave")
+                .access("hasAuthority('ROLE_KONTOR')")
+                .antMatchers("/admin/","/ansatInfo/opretAnsat",
+                        "/ansatInfo/redigerAnsat/{id}","/kontorInfo/ansatSlet/{id}","/ansatInfo/ansatSlet/{id}")
                 .access("hasAuthority('ROLE_ADMIN')")
                 .and()
                 .formLogin().loginPage("/login").failureUrl("/login?error")

@@ -54,7 +54,8 @@
         <h1>Enter information</h1>
         <form method="Post" th:action="@{/ansatInfo/redigerAnsat}">
             <div>
-                <input class="form-control" readonly required th:field="${bruger.id}">
+                <input class="form-control" hidden readonly required th:field="${bruger.id}">
+
                 <label for="navn">Chauffør</label>
                 <input class="form-control" type="text"  id="navn" placeholder="Indast navn" th:field="${bruger.navn}"
                        required="true"/>

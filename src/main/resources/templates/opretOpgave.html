@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div >
+    <div>
+        <h1>Enter information</h1>
+        <form method="Post" th:action="@{/opgaveList/opretOpgave}">
+            <div>
+                <label>Chauffør til Opgaven</label>
+                <select th:field="${opgave.brugere}">
+                    <option
+                            th:each="bruger : ${brugere}"
+                            th:value="${bruger.id}"
+                            th:text="${bruger.navn}"
+                    ></option>
+                </select>
+                <label>Vælg prioritet for opgaven</label>
+                <select th:field="${opgave.prioritet}">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <label for="firma">Firma</label>
+                <input type="text"  id="firma" placeholder="Indtast firma navn" th:field="${opgave.firma}"
+                       required="true"/>
+                <label for="kontaktperson">Kontaktperson</label>
+                <input type="text"  id="kontaktperson" placeholder="Indtast navn på kontaktperson" th:field="${opgave.kontaktPerson}"
+                       required="true"/>
+                <label for="kundeTlf">Telefonnummer</label>
+                <input type="number"  id="kundeTlf" min="1" max="99999999" placeholder="0"
+                       th:field="${opgave.kundeTlf}" required="true"/>
+                <label for="email">Email</label>
+                <input type="text"  id="email" placeholder="Indtast email" th:field="${opgave.email}"
+                       required="true"/>
+            </div>
+
+
+            <button type="submit" class="btn btn-outline-success">Save</button>
+            <button type="reset" class="btn btn-outline-danger">Reset</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

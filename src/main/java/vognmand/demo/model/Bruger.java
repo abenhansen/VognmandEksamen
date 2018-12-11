@@ -98,4 +98,9 @@ public class Bruger {
     public void setNummer(int nummer) {
         this.nummer = nummer;
     }
+
+    @Override
+    public String toString() {
+        return navn;
+    }
 }
