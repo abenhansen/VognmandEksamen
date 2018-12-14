@@ -48,13 +48,15 @@
         </div>
     </nav>
 </header>
+
 <div >
     <div>
         <h1>Enter information</h1>
-        <form method="Post" th:action="@{/opgaveList/opretOpgave}">
+        <form method="Post" th:action="@{/opgaveList/redigerOpgave}">
             <div>
+                <input  readonly hidden required th:field="${opgave.id}"/>
                 <label>Chauffør til Opgaven</label>
-                <select  th:field="${opgave.brugere}">
+                <select th:field="${opgave.brugere}">
                     <option
                             th:if="${bruger.rolle}== ROLE_CHAUFFØR"
                             th:each="bruger : ${brugere}"

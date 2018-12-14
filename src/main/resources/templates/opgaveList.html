@@ -66,6 +66,12 @@
         <td th:text="${opgave.prioritet}"/>
         <td th:text="${opgave.adresse}"/>
         <td>
+            <a th:href="${'opgaveList/redigerOpgave/' + opgave.id}">
+                <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Rediger Opgave</button>
+            <!--</a>-->
+            <!--<a th:href="${'opgaveList/sletOpgave/' + opgave.id}">-->
+                <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Opgave</button>-->
+            <!--</a>-->
             <!--<a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">-->
                 <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>-->
             <!--</a>-->
@@ -93,6 +99,9 @@
         <td th:text="${opgave.prioritet}"/>
         <td th:text="${opgave.adresse}"/>
         <td>
+            <a th:href="${'opgaveList/redigerOpgave/' + opgave.id}">
+                <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Rediger Opgave</button>
+            </a>
             <!--<a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">-->
             <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>-->
             <!--</a>-->
@@ -120,6 +129,9 @@
         <td th:text="${opgave.prioritet}"/>
         <td th:text="${opgave.adresse}"/>
         <td>
+            <a th:href="${'opgaveList/redigerOpgave/' + opgave.id}">
+                <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Rediger Opgave</button>
+            </a>
             <!--<a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">-->
             <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>-->
             <!--</a>-->
@@ -147,6 +159,9 @@
         <td th:text="${opgave.prioritet}"/>
         <td th:text="${opgave.adresse}"/>
         <td>
+            <a th:href="${'opgaveList/redigerOpgave/' + opgave.id}">
+                <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Rediger Opgave</button>
+            </a>
             <!--<a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">-->
             <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>-->
             <!--</a>-->
@@ -174,6 +189,9 @@
         <td th:text="${opgave.prioritet}"/>
         <td th:text="${opgave.adresse}"/>
         <td>
+            <a th:href="${'opgaveList/redigerOpgave/' + opgave.id}">
+                <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Rediger Opgave</button>
+            </a>
             <!--<a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">-->
             <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>-->
             <!--</a>-->
