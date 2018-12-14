@@ -53,7 +53,7 @@
         <h1>Opret Ansat</h1>
         <form class="" method="Post" th:action="@{/opgaveList/opretOpgave}">
             <div class="form-group">
-                <label>Chauffør til Opgaven</label>
+                <label>Chauffør</label>
                 <select class="form-control" th:field="${opgave.brugere}">
                     <option
                             th:if="${bruger.rolle}== ROLE_CHAUFFØR"
@@ -62,7 +62,7 @@
                             th:text="${bruger.navn}"
                     ></option>
                 </select>
-                <label>Vælg prioritet for opgaven</label>
+                <label>Prioritet</label>
                 <select class="form-control" th:field="${opgave.prioritet}">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -71,6 +71,7 @@
                 <label for="adresse">Adresse</label>
                 <input type="text"  id="adresse" placeholder="Indtast adresse for opgaven" th:field="${opgave.adresse}"
                        required="true"/>
+                <p></p>
                 <label for="firma">Firma</label>
                 <input class="form-control" type="text"  id="firma" placeholder="Indtast firma navn" th:field="${opgave.firma}"
                        required="true"/>
@@ -83,7 +84,7 @@
                 <label for="email">Email</label>
                 <input class="form-control" type="text"  id="email" placeholder="Indtast email" th:field="${opgave.email}"
                        required="true"/>
-                <label>Vælg dag for opgaven</label>
+                <label>Vælg dag</label>
                 <select th:field="${opgave.dag}">
                     <option value="Mandag">Mandag</option>
                     <option value="Tirsdag">Tirsdag</option>
