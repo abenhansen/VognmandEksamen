@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
@@ -13,33 +13,34 @@
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-                <img style="padding-right: 20px"  src="https://i.imgur.com/ufPqJzL.png" alt="Kurt Hansen Logo" height="50" width="273">
+                <img style="padding-right: 20px" src="https://i.imgur.com/ufPqJzL.png" alt="Kurt Hansen Logo"
+                     height="50" width="273">
             </div>
             <ul class="nav navbar-nav">
                 <li>
                     <form th:action="@{/ansatInfo}" method="get">
-                        <input style="height: 50px" class="btn btn-secondary" type="submit" value="Chauffører" />
+                        <input style="height: 50px" class="btn btn-secondary" type="submit" value="Chauffører"/>
                     </form>
                 </li>
             </ul>
             <ul class="nav navbar-nav">
                 <li>
                     <form th:action="@{/kontorInfo}" method="get">
-                        <input style="height: 50px" class="btn btn-secondary" type="submit" value="Kontormedarbejdere" />
+                        <input style="height: 50px" class="btn btn-secondary" type="submit" value="Kontormedarbejdere"/>
                     </form>
                 </li>
             </ul>
             <ul class="nav navbar-nav">
                 <li>
                     <form th:action="@{/opgaveList}" method="get">
-                        <input style="height: 50px" class="btn btn-secondary" type="submit" value="Ugeplan" />
+                        <input style="height: 50px" class="btn btn-secondary" type="submit" value="Ugeplan"/>
                     </form>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <form th:action="@{/logout}" method="post">
-                        <input style="height: 50px" class="btn btn btn-danger" type="submit" value="Log ud" />
+                        <input style="height: 50px" class="btn btn btn-danger" type="submit" value="Log ud"/>
                     </form>
                 </li>
             </ul>
@@ -47,42 +48,48 @@
     </nav>
 </header>
 
-<table style="width:100%">
-    <th>Chauffør</th>
-    <td th:text="${opgave.brugere}"> </td>
-    </tr>
-    <tr>
-        <th>Prioritet</th>
-        <td th:text="${opgave.prioritet}"></td>
-    </tr>
-    <tr>
-        <th>Dag</th>
-        <td th:text="${opgave.dag}"> </td>
-    </tr>
-    <tr>
-        <th>Firma</th>
-        <td th:text="${opgave.firma}"> </td>
-    </tr>
-    <tr>
-        <th>Adresse</th>
-        <td th:text="${opgave.adresse}"> </td>
-    </tr>
-    <tr>
-        <th>Kontakt Person</th>
-        <td th:text="${opgave.kontaktPerson}"> </td>
-    </tr>
-    <tr>
-        <th>Kunde telefonnummer</th>
-        <td th:text="${opgave.kundeTlf}"> </td>
-    </tr>
-    <tr>
-        <th>Email</th>
-        <td th:text="${opgave.email}"> </td>
-    </tr>
-    <tr>
-        <th>Transport Type</th>
-        <td th:text="${opgave.transportType}"> </td>
-    </tr>
-</table>
+<div class="container" style="width: 50%">
+    <table style="width:100%" class="table">
+        <tr>
+            <th>Chauffør</th>
+            <td th:text="${opgave.brugere}"></td>
+        </tr>
+        <tr>
+            <th>Prioritet</th>
+            <td th:text="${opgave.prioritet}"></td>
+        </tr>
+        <tr>
+            <th>Dag</th>
+            <td th:text="${opgave.dag}"></td>
+        </tr>
+        <tr>
+            <th>Firma</th>
+            <td th:text="${opgave.firma}"></td>
+        </tr>
+        <tr>
+            <th>Adresse</th>
+            <td th:text="${opgave.adresse}"></td>
+        </tr>
+        <tr>
+            <th>Kontakt Person</th>
+            <td th:text="${opgave.kontaktPerson}"></td>
+        </tr>
+        <tr>
+            <th>Kunde telefonnummer</th>
+            <td th:text="${opgave.kundeTlf}"></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td th:text="${opgave.email}"></td>
+        </tr>
+        <tr>
+            <th>Transport Type</th>
+            <td th:text="${opgave.transportType}"></td>
+        </tr>
+    </table>
+    <form th:action="@{/opgaveList}" method="get">
+        <input style="height: 50px" class="btn btn btn-danger" type="submit" value="Tilbage"/>
+    </form>
+</div>
 </body>
 </html>

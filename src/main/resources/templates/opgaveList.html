@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
@@ -13,33 +13,34 @@
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-                <img style="padding-right: 20px"  src="https://i.imgur.com/ufPqJzL.png" alt="Kurt Hansen Logo" height="50" width="273">
+                <img style="padding-right: 20px" src="https://i.imgur.com/ufPqJzL.png" alt="Kurt Hansen Logo"
+                     height="50" width="273">
             </div>
             <ul class="nav navbar-nav">
                 <li>
                     <form th:action="@{/ansatInfo}" method="get">
-                        <input style="height: 50px" class="btn btn-secondary" type="submit" value="Chauffører" />
+                        <input style="height: 50px" class="btn btn-secondary" type="submit" value="Chauffører"/>
                     </form>
                 </li>
             </ul>
             <ul class="nav navbar-nav">
                 <li>
                     <form th:action="@{/kontorInfo}" method="get">
-                        <input style="height: 50px" class="btn btn-secondary" type="submit" value="Kontormedarbejdere" />
+                        <input style="height: 50px" class="btn btn-secondary" type="submit" value="Kontormedarbejdere"/>
                     </form>
                 </li>
             </ul>
             <ul class="nav navbar-nav">
                 <li>
                     <form th:action="@{/opgaveList}" method="get">
-                        <input style="height: 50px" class="btn btn-secondary" type="submit" value="Ugeplan" />
+                        <input style="height: 50px" class="btn btn-secondary" type="submit" value="Ugeplan"/>
                     </form>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <form th:action="@{/logout}" method="post">
-                        <input style="height: 50px" class="btn btn btn-danger" type="submit" value="Log ud" />
+                        <input style="height: 50px" class="btn btn btn-danger" type="submit" value="Log ud"/>
                     </form>
                 </li>
             </ul>
@@ -47,195 +48,199 @@
     </nav>
 </header>
 
-
-
-<a th:href="@{opgaveList/opretOpgave}">
-    <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Opret Opgave</button>
-</a>
-
-
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" id="Mandag-tab" data-toggle="tab" href="#Mandag" role="tab" aria-controls="Mandag" aria-selected="true">Mandag</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="Tirsdag-tab" data-toggle="tab" href="#Tirsdag" role="tab" aria-controls="Tirsdag" aria-selected="false">Tirsdag</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="Onsdag-tab" data-toggle="tab" href="#Onsdag" role="tab" aria-controls="Onsdag" aria-selected="false">Onsdag</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="Torsdag-tab" data-toggle="tab" href="#Torsdag" role="tab" aria-controls="Torsdag" aria-selected="false">Torsdag</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="Fredag-tab" data-toggle="tab" href="#Fredag" role="tab" aria-controls="Fredag" aria-selected="false">Fredag</a>
-    </li>
-</ul>
-<div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade active" id="Mandag" role="tabpanel" aria-labelledby="Mandag-tab">
-
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Mandag</th>
-            </tr>
-            <tr >
-                <th>Chauffør</th>
-                <th>Prioritet</th>
-                <th>Adresse</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:if="${opgave.dag}== Mandag" th:each="opgave: ${opgaver}">
-                <td th:text="${opgave.brugere}"/>
-                <td th:text="${opgave.prioritet}"/>
-                <td th:text="${opgave.adresse}"/>
-                <td>
-                    <a th:href="${'opgaveList/redigerOpgave/' + opgave.id}">
-                        <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Rediger Opgave</button>
-                    </a>
-                    <a th:href="${'opgaveList/opgaveDetaljer/' + opgave.id}">
-                        <button>Mere Info</button>
-                    </a>
-                    <a onclick="return confirm('Vil du fjerne denne opgave?')" th:href="${'opgaveList/sletOpgave/' + opgave.id}">
-                        <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Slet Opgave</button>
-                    </a>
-                    </td>
-            </tr>
-            </tbody>
-        </table>
-
-    </div>
-    <div class="tab-pane fade" id="Tirsdag" role="tabpanel" aria-labelledby="Tirsdag-tab">
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Tirsdag</th>
-            </tr>
-            <tr>
-                <th>Chauffør</th>
-                <th>Prioritet</th>
-                <th>Adresse</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:if="${opgave.dag}== Tirsdag" th:each="opgave: ${opgaver}">
-                <td th:text="${opgave.brugere}"/>
-                <td th:text="${opgave.prioritet}"/>
-                <td th:text="${opgave.adresse}"/>
-                <td>
-                    <a th:href="${'opgaveList/redigerOpgave/' + opgave.id}">
-                        <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Rediger Opgave</button>
-                    </a>
-                    <a th:href="${'opgaveList/opgaveDetaljer/' + opgave.id}">
-                        <button>Mere Info</button>
-                    </a>
-                    <a onclick="return confirm('Vil du fjerne denne opgave?')" th:href="${'opgaveList/sletOpgave/' + opgave.id}">
-                        <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Slet Opgave</button>
-                    </a>
-                    </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="tab-pane fade" id="Onsdag" role="tabpanel" aria-labelledby="Onsdag-tab">
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Onsdag</th>
-            </tr>
-            <tr>
-                <th>Chauffør</th>
-                <th>Prioritet</th>
-                <th>Adresse</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:if="${opgave.dag}== Onsdag" th:each="opgave: ${opgaver}">
-                <td th:text="${opgave.brugere}"/>
-                <td th:text="${opgave.prioritet}"/>
-                <td th:text="${opgave.adresse}"/>
-                <td>
-                    <a th:href="${'opgaveList/redigerOpgave/' + opgave.id}">
-                        <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Rediger Opgave</button>
-                    </a>
-                    <a th:href="${'opgaveList/opgaveDetaljer/' + opgave.id}">
-                        <button>Mere Info</button>
-                    </a>
-                    <a onclick="return confirm('Vil du fjerne denne opgave?')" th:href="${'opgaveList/sletOpgave/' + opgave.id}">
-                        <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Slet Opgave</button>
-                    </a>
-                    </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="tab-pane fade" id="Torsdag" role="tabpanel" aria-labelledby="Torsdag-tab">
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Torsdag</th>
-            </tr>
-            <tr>
-                <th>Chauffør</th>
-                <th>Prioritet</th>
-                <th>Adresse</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:if="${opgave.dag}== Torsdag" th:each="opgave: ${opgaver}">
-                <td th:text="${opgave.brugere}"/>
-                <td th:text="${opgave.prioritet}"/>
-                <td th:text="${opgave.adresse}"/>
-                <td>
-                    <a th:href="${'opgaveList/redigerOpgave/' + opgave.id}">
-                        <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Rediger Opgave</button>
-                    </a>
-                    <a th:href="${'opgaveList/opgaveDetaljer/' + opgave.id}">
-                        <button>Mere Info</button>
-                    </a>
-                    <a onclick="return confirm('Vil du fjerne denne opgave?')" th:href="${'opgaveList/sletOpgave/' + opgave.id}">
-                        <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Slet Opgave</button>
-                    </a>
-                    </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="tab-pane fade" id="Fredag" role="tabpanel" aria-labelledby="Fredag-tab">
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Fredag</th>
-            </tr>
-            <tr>
-                <th>Chauffør</th>
-                <th>Prioritet</th>
-                <th>Adresse</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:if="${opgave.dag}== Fredag" th:each="opgave: ${opgaver}">
-                <td th:text="${opgave.brugere}"/>
-                <td th:text="${opgave.prioritet}"/>
-                <td th:text="${opgave.adresse}"/>
-                <td>
-                   <a th:href="${'opgaveList/redigerOpgave/' + opgave.id}">
-                  <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Rediger Opgave</button>
-                   </a>
-                    <a th:href="${'opgaveList/opgaveDetaljer/' + opgave.id}">
-                        <button>Mere Info</button>
-                    </a>
-                   <a onclick="return confirm('Vil du fjerne denne opgave?')" th:href="${'opgaveList/sletOpgave/' + opgave.id}">
-                   <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Slet Opgave</button>
-                    </a>
-                    </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+<div class="container" style="width: 50%">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link" id="Mandag-tab" data-toggle="tab" href="#Mandag" role="tab" aria-controls="Mandag"
+               aria-selected="true">Mandag</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="Tirsdag-tab" data-toggle="tab" href="#Tirsdag" role="tab" aria-controls="Tirsdag"
+               aria-selected="false">Tirsdag</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="Onsdag-tab" data-toggle="tab" href="#Onsdag" role="tab" aria-controls="Onsdag"
+               aria-selected="false">Onsdag</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="Torsdag-tab" data-toggle="tab" href="#Torsdag" role="tab" aria-controls="Torsdag"
+               aria-selected="false">Torsdag</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="Fredag-tab" data-toggle="tab" href="#Fredag" role="tab" aria-controls="Fredag"
+               aria-selected="false">Fredag</a>
+        </li>
+    </ul>
 </div>
+<div class="container" style="width: 50%">
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade active" id="Mandag" role="tabpanel" aria-labelledby="Mandag-tab">
 
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Chauffør</th>
+                    <th>Prioritet</th>
+                    <th>Adresse</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${opgave.dag}== Mandag" th:each="opgave: ${opgaver}">
+                    <td th:text="${opgave.brugere}"/>
+                    <td th:text="${opgave.prioritet}"/>
+                    <td th:text="${opgave.adresse}"/>
+                    <td>
+                        <a th:href="${'opgaveList/opgaveDetaljer/' + opgave.id}">
+                            <button class="btn btn-info">Mere Info</button>
+                        </a>
+
+                        <a th:href="${'opgaveList/redigerOpgave/' + opgave.id}">
+                            <button th:if="${#request.isUserInRole('ROLE_KONTOR')}" class="btn btn-warning">Rediger Opgave</button>
+                        </a>
+
+                        <a onclick="return confirm('Vil du fjerne denne opgave?')"
+                           th:href="${'opgaveList/sletOpgave/' + opgave.id}">
+                            <button th:if="${#request.isUserInRole('ROLE_KONTOR')}" class="btn btn-danger">Slet Opgave</button>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="tab-pane fade" id="Tirsdag" role="tabpanel" aria-labelledby="Tirsdag-tab">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Chauffør</th>
+                    <th>Prioritet</th>
+                    <th>Adresse</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${opgave.dag}== Tirsdag" th:each="opgave: ${opgaver}">
+                    <td th:text="${opgave.brugere}"/>
+                    <td th:text="${opgave.prioritet}"/>
+                    <td th:text="${opgave.adresse}"/>
+                    <td>
+                        <a th:href="${'opgaveList/opgaveDetaljer/' + opgave.id}">
+                            <button class="btn btn-info">Mere Info</button>
+                        </a>
+
+                        <a th:href="${'opgaveList/redigerOpgave/' + opgave.id}">
+                            <button th:if="${#request.isUserInRole('ROLE_KONTOR')}" class="btn btn-warning">Rediger Opgave</button>
+                        </a>
+
+                        <a onclick="return confirm('Vil du fjerne denne opgave?')"
+                           th:href="${'opgaveList/sletOpgave/' + opgave.id}">
+                            <button th:if="${#request.isUserInRole('ROLE_KONTOR')}" class="btn btn-danger">Slet Opgave</button>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="Onsdag" role="tabpanel" aria-labelledby="Onsdag-tab">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Chauffør</th>
+                    <th>Prioritet</th>
+                    <th>Adresse</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${opgave.dag}== Onsdag" th:each="opgave: ${opgaver}">
+                    <td th:text="${opgave.brugere}"/>
+                    <td th:text="${opgave.prioritet}"/>
+                    <td th:text="${opgave.adresse}"/>
+                    <td>
+                        <a th:href="${'opgaveList/opgaveDetaljer/' + opgave.id}">
+                            <button class="btn btn-info">Mere Info</button>
+                        </a>
+
+                        <a th:href="${'opgaveList/redigerOpgave/' + opgave.id}">
+                            <button th:if="${#request.isUserInRole('ROLE_KONTOR')}" class="btn btn-warning">Rediger Opgave</button>
+                        </a>
+
+                        <a onclick="return confirm('Vil du fjerne denne opgave?')"
+                           th:href="${'opgaveList/sletOpgave/' + opgave.id}">
+                            <button th:if="${#request.isUserInRole('ROLE_KONTOR')}" class="btn btn-danger">Slet Opgave</button>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="Torsdag" role="tabpanel" aria-labelledby="Torsdag-tab">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Chauffør</th>
+                    <th>Prioritet</th>
+                    <th>Adresse</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${opgave.dag}== Torsdag" th:each="opgave: ${opgaver}">
+                    <td th:text="${opgave.brugere}"/>
+                    <td th:text="${opgave.prioritet}"/>
+                    <td th:text="${opgave.adresse}"/>
+                    <td>
+                        <a th:href="${'opgaveList/opgaveDetaljer/' + opgave.id}">
+                            <button class="btn btn-info">Mere Info</button>
+                        </a>
+
+                        <a th:href="${'opgaveList/redigerOpgave/' + opgave.id}">
+                            <button th:if="${#request.isUserInRole('ROLE_KONTOR')}" class="btn btn-warning">Rediger Opgave</button>
+                        </a>
+
+                        <a onclick="return confirm('Vil du fjerne denne opgave?')"
+                           th:href="${'opgaveList/sletOpgave/' + opgave.id}">
+                            <button th:if="${#request.isUserInRole('ROLE_KONTOR')}" class="btn btn-danger">Slet Opgave</button>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="Fredag" role="tabpanel" aria-labelledby="Fredag-tab">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Chauffør</th>
+                    <th>Prioritet</th>
+                    <th>Adresse</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${opgave.dag}== Fredag" th:each="opgave: ${opgaver}">
+                    <td th:text="${opgave.brugere}"/>
+                    <td th:text="${opgave.prioritet}"/>
+                    <td th:text="${opgave.adresse}"/>
+                    <td>
+                        <a th:href="${'opgaveList/opgaveDetaljer/' + opgave.id}">
+                            <button class="btn btn-info">Mere Info</button>
+                        </a>
+
+                        <a th:href="${'opgaveList/redigerOpgave/' + opgave.id}">
+                            <button th:if="${#request.isUserInRole('ROLE_KONTOR')}" class="btn btn-warning">Rediger Opgave</button>
+                        </a>
+
+                        <a onclick="return confirm('Vil du fjerne denne opgave?')"
+                           th:href="${'opgaveList/sletOpgave/' + opgave.id}">
+                            <button th:if="${#request.isUserInRole('ROLE_KONTOR')}" class="btn btn-danger">Slet Opgave</button>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <a th:href="@{opgaveList/opretOpgave}">
+        <button th:if="${#request.isUserInRole('ROLE_KONTOR')}" class="btn btn-success">Opret Opgave</button>
+    </a>
+</div>
 
 
 </body>
