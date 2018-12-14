@@ -43,6 +43,13 @@ public class OpgaveController {
         return "redirect:/opgaveList";
     }
 
+    @GetMapping("/opgaveList/sletOpgave/{id}")
+    public String kontorSlet(@PathVariable("id") long id) {
+        opgaverepo.deleteById(id);
+        return "redirect:/opgaveList";
+    }
+
+
     @GetMapping("/opgaveList/sletAlt")
     public String sletAlt (){
         opgaverepo.deleteAll();;
@@ -64,6 +71,7 @@ public class OpgaveController {
         return "redirect:/opgaveList";
 
     }
+
 
 
 
