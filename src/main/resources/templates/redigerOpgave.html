@@ -55,7 +55,7 @@
         <form method="Post" th:action="@{/opgaveList/redigerOpgave}">
             <div>
                 <input  readonly hidden required th:field="${opgave.id}"/>
-                <label>Chauffør til Opgaven</label>
+                <label>Chauffør</label>
                 <select th:field="${opgave.brugere}">
                     <option
                             th:if="${bruger.rolle}== ROLE_CHAUFFØR"
@@ -64,7 +64,7 @@
                             th:text="${bruger.navn}"
                     ></option>
                 </select>
-                <label>Vælg prioritet for opgaven</label>
+                <label>Prioritet</label>
                 <select th:field="${opgave.prioritet}">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -85,7 +85,7 @@
                 <label for="email">Email</label>
                 <input type="text"  id="email" placeholder="Indtast email" th:field="${opgave.email}"
                        required="true"/>
-                <label>Vælg dag for opgaven</label>
+                <label>Vælg dag</label>
                 <select th:field="${opgave.dag}">
                     <option value="Mandag">Mandag</option>
                     <option value="Tirsdag">Tirsdag</option>
