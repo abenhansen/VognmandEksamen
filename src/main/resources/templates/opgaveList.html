@@ -39,7 +39,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <form th:action="@{/logout}" method="post">
-                        <input style="height: 50px" class="btn btn btn-danger" type="submit" value="Sign Out" />
+                        <input style="height: 50px" class="btn btn btn-danger" type="submit" value="Log ud" />
                     </form>
                 </li>
             </ul>
@@ -52,6 +52,7 @@
 <a th:href="@{opgaveList/opretOpgave}">
     <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Opret Opgave</button>
 </a>
+
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
@@ -90,13 +91,13 @@
                 <td th:text="${opgave.prioritet}"/>
                 <td th:text="${opgave.adresse}"/>
                 <td>
-                    <!--<a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">-->
-                    <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>-->
-                    <!--</a>-->
-                    <!--<a onclick="return confirm('Do you reject the students choice of courses?')" th:href="${'ansatInfo/ansatSlet/' + bruger.id}">-->
-                    <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Slet Chauffør</button>-->
-                    <!--</a>-->
-                    <!--</td>-->
+                   <a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">
+                  <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Rediger Opgave</button>
+                   </a>
+                   <a onclick="return confirm('Vil du fjerne denne opgave?')" th:href="${'ansatInfo/ansatSlet/' + bruger.id}">
+                   <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Slet Opgave</button>
+                    </a>
+                    </td>
             </tr>
             </tbody>
         </table>
@@ -120,13 +121,13 @@
                 <td th:text="${opgave.prioritet}"/>
                 <td th:text="${opgave.adresse}"/>
                 <td>
-                    <!--<a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">-->
-                    <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>-->
-                    <!--</a>-->
-                    <!--<a onclick="return confirm('Do you reject the students choice of courses?')" th:href="${'ansatInfo/ansatSlet/' + bruger.id}">-->
-                    <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Slet Chauffør</button>-->
-                    <!--</a>-->
-                    <!--</td>-->
+                    <a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">
+                  <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Rediger Opgave</button>
+                   </a>
+                   <a onclick="return confirm('Vil du fjerne denne opgave?')" th:href="${'ansatInfo/ansatSlet/' + bruger.id}">
+                   <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Slet Opgave</button>
+                    </a>
+                    </td>
             </tr>
             </tbody>
         </table>
@@ -149,13 +150,13 @@
                 <td th:text="${opgave.prioritet}"/>
                 <td th:text="${opgave.adresse}"/>
                 <td>
-                    <!--<a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">-->
-                    <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>-->
-                    <!--</a>-->
-                    <!--<a onclick="return confirm('Do you reject the students choice of courses?')" th:href="${'ansatInfo/ansatSlet/' + bruger.id}">-->
-                    <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Slet Chauffør</button>-->
-                    <!--</a>-->
-                    <!--</td>-->
+                   <a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">
+                  <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Rediger Opgave</button>
+                   </a>
+                   <a onclick="return confirm('Vil du fjerne denne opgave?')" th:href="${'ansatInfo/ansatSlet/' + bruger.id}">
+                   <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Slet Opgave</button>
+                    </a>
+                    </td>
             </tr>
             </tbody>
         </table>
@@ -178,13 +179,13 @@
                 <td th:text="${opgave.prioritet}"/>
                 <td th:text="${opgave.adresse}"/>
                 <td>
-                    <!--<a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">-->
-                    <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>-->
-                    <!--</a>-->
-                    <!--<a onclick="return confirm('Do you reject the students choice of courses?')" th:href="${'ansatInfo/ansatSlet/' + bruger.id}">-->
-                    <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Slet Chauffør</button>-->
-                    <!--</a>-->
-                    <!--</td>-->
+                  <a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">
+                  <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Rediger Opgave</button>
+                   </a>
+                   <a onclick="return confirm('Vil du fjerne denne opgave?')" th:href="${'ansatInfo/ansatSlet/' + bruger.id}">
+                   <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Slet Opgave</button>
+                    </a>
+                    </td>
             </tr>
             </tbody>
         </table>
@@ -207,18 +208,19 @@
                 <td th:text="${opgave.prioritet}"/>
                 <td th:text="${opgave.adresse}"/>
                 <td>
-                    <!--<a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">-->
-                    <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Rediger Chauffør</button>-->
-                    <!--</a>-->
-                    <!--<a onclick="return confirm('Do you reject the students choice of courses?')" th:href="${'ansatInfo/ansatSlet/' + bruger.id}">-->
-                    <!--<button th:if="${#request.isUserInRole('ROLE_ADMIN')}">Slet Chauffør</button>-->
-                    <!--</a>-->
-                    <!--</td>-->
+                   <a th:href="${'ansatInfo/redigerAnsat/' + bruger.id}">
+                  <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Rediger Opgave</button>
+                   </a>
+                   <a onclick="return confirm('Vil du fjerne denne opgave?')" th:href="${'ansatInfo/ansatSlet/' + bruger.id}">
+                   <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Slet Opgave</button>
+                    </a>
+                    </td>
             </tr>
             </tbody>
         </table>
     </div>
 </div>
+
 
 
 </body>
