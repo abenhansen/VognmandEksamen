@@ -42,7 +42,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <form th:action="@{/logout}" method="post">
-                        <input style="height: 50px" class="btn btn btn-danger" type="submit" value="Sign Out" />
+                        <input style="height: 50px" class="btn btn btn-danger" type="submit" value="Log ud" />
                     </form>
                 </li>
             </ul>
@@ -51,17 +51,17 @@
 </header>
 
 
-<p >Hej</p>
-<div th:if="${#request.isUserInRole('ROLE_CHAUFFØR')}">Chauffør kun!</div>
+<!--<p >Hej</p>-->
+<!--<div th:if="${#request.isUserInRole('ROLE_CHAUFFØR')}">Chauffør kun!</div>-->
 
-<a th:href="@{/ansatInfo}">
-    <button>Chaufførere</button>
-</a>
-<a th:href="@{/kontorInfo}">
-    <button>Kontormedarbejdere</button>
-</a>
-<a th:href="@{/opgaveList}">
-    <button>Opgave Liste</button>
-</a>
+<div class="container">
+    <div class="col-">
+        <h2>Hej, navn!</h2>
+    </div>
+    <!--Mangler thymeleaf her!-->
+    <div class="row-">
+        <img src="http://www.vognmandhansen.dk/images/KurtHansensBiler.jpg" width="479" height="358">
+    </div>
+</div>
 </body>
 </html>
