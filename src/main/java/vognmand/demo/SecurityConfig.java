@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
 //                .antMatchers("/", "/mainPage").access("hasRole('ROLE_ADMIN')")
-                .antMatchers("/","/hovedSide", "/ansatInfo", "/opgaveList")
+                .antMatchers("/","/hovedSide", "/ansatInfo", "/opgaveList","/opgaveList/opgaveDetaljer/{id}")
                 .access("hasAnyAuthority('ROLE_CHAUFFØR','ROLE_ADMIN','ROLE_KONTOR')")
                 .antMatchers("opgaveList/opretOpgave","opgaveList/redigerOpgave/{id}", "opgaveList/sletOpgave/{id}")
                 .access("hasAuthority('ROLE_KONTOR')")

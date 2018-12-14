@@ -13,6 +13,7 @@ import vognmand.demo.model.Opgave;
 import vognmand.demo.model.OpgaveRepository;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 @Controller
 public class OpgaveController {
@@ -26,6 +27,7 @@ public class OpgaveController {
     @GetMapping("/opgaveList")
     public String opgaveList (Model model){
         ArrayList<Opgave> all = (ArrayList<Opgave>) opgaverepo.findAll();
+        Collections.sort(all);
         model.addAttribute("opgaver", all);
         return "opgaveList";
     }
@@ -69,6 +71,14 @@ public class OpgaveController {
     public String redigerOpgave(@ModelAttribute Opgave opgave ){
         opgaverepo.save(opgave);
         return "redirect:/opgaveList";
+
+    }
+
+    @GetMapping("/opgaveList/opgaveDetaljer/{id}")
+    public String courseDetails(@PathVariable long id, Model model){
+        Opgave o = opgaverepo.findById(id);
+        model.addAttribute("opgave", o);
+        return "opgaveDetaljer";
 
     }
 

@@ -94,6 +94,9 @@
                     <a th:href="${'opgaveList/redigerOpgave/' + opgave.id}">
                         <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Rediger Opgave</button>
                     </a>
+                    <a th:href="${'opgaveList/opgaveDetaljer/' + opgave.id}">
+                        <button>Mere Info</button>
+                    </a>
                     <a onclick="return confirm('Vil du fjerne denne opgave?')" th:href="${'opgaveList/sletOpgave/' + opgave.id}">
                         <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Slet Opgave</button>
                     </a>
@@ -124,6 +127,9 @@
                     <a th:href="${'opgaveList/redigerOpgave/' + opgave.id}">
                         <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Rediger Opgave</button>
                     </a>
+                    <a th:href="${'opgaveList/opgaveDetaljer/' + opgave.id}">
+                        <button>Mere Info</button>
+                    </a>
                     <a onclick="return confirm('Vil du fjerne denne opgave?')" th:href="${'opgaveList/sletOpgave/' + opgave.id}">
                         <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Slet Opgave</button>
                     </a>
@@ -152,6 +158,9 @@
                 <td>
                     <a th:href="${'opgaveList/redigerOpgave/' + opgave.id}">
                         <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Rediger Opgave</button>
+                    </a>
+                    <a th:href="${'opgaveList/opgaveDetaljer/' + opgave.id}">
+                        <button>Mere Info</button>
                     </a>
                     <a onclick="return confirm('Vil du fjerne denne opgave?')" th:href="${'opgaveList/sletOpgave/' + opgave.id}">
                         <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Slet Opgave</button>
@@ -182,6 +191,9 @@
                     <a th:href="${'opgaveList/redigerOpgave/' + opgave.id}">
                         <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Rediger Opgave</button>
                     </a>
+                    <a th:href="${'opgaveList/opgaveDetaljer/' + opgave.id}">
+                        <button>Mere Info</button>
+                    </a>
                     <a onclick="return confirm('Vil du fjerne denne opgave?')" th:href="${'opgaveList/sletOpgave/' + opgave.id}">
                         <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Slet Opgave</button>
                     </a>
@@ -211,6 +223,9 @@
                    <a th:href="${'opgaveList/redigerOpgave/' + opgave.id}">
                   <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Rediger Opgave</button>
                    </a>
+                    <a th:href="${'opgaveList/opgaveDetaljer/' + opgave.id}">
+                        <button>Mere Info</button>
+                    </a>
                    <a onclick="return confirm('Vil du fjerne denne opgave?')" th:href="${'opgaveList/sletOpgave/' + opgave.id}">
                    <button th:if="${#request.isUserInRole('ROLE_KONTOR')}">Slet Opgave</button>
                     </a>

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Opgave {
+public class Opgave implements Comparable<Opgave> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -115,5 +115,10 @@ public class Opgave {
 
     public void setBrugere(List<Bruger> brugere) {
         this.brugere = brugere;
+    }
+
+    @Override
+    public int compareTo(Opgave o) {
+        return prioritet - ((Opgave)o).prioritet;
     }
 }
