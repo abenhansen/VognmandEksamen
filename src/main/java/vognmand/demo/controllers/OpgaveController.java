@@ -50,5 +50,29 @@ public class OpgaveController {
     }
 
 
+    @GetMapping("/opgaveList/sletAlt")
+    public String sletAlt (){
+        opgaverepo.deleteAll();;
+        return "redirect:/opgaveList";
+    }
+
+    @GetMapping("/opgaveList/redigerOpgave/{id}")
+    public String redigerOpgave(@PathVariable long id, Model model){
+        Opgave opgave = opgaverepo.findById(id);
+        model.addAttribute("brugere", brugerrepo.findAll());
+        model.addAttribute("opgave", opgave);
+        return "redigerOpgave";
+
+    }
+
+    @PostMapping("/opgaveList/redigerOpgave")
+    public String redigerOpgave(@ModelAttribute Opgave opgave ){
+        opgaverepo.save(opgave);
+        return "redirect:/opgaveList";
+
+    }
+
+
+
 
 }
