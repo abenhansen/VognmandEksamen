@@ -69,14 +69,13 @@
                     <option value="3">3</option>
                 </select>
                 <label for="adresse">Adresse</label>
-                <input type="text"  id="adresse" placeholder="Indtast adresse for opgaven" th:field="${opgave.adresse}"
+                <input class="form-control" type="text"  id="adresse" placeholder="Indtast adresse" th:field="${opgave.adresse}"
                        required="true"/>
-                <p></p>
                 <label for="firma">Firma</label>
                 <input class="form-control" type="text"  id="firma" placeholder="Indtast firma navn" th:field="${opgave.firma}"
                        required="true"/>
                 <label for="kontaktperson">Kontaktperson</label>
-                <input class="form-control" type="text"  id="kontaktperson" placeholder="Indtast navn på kontaktperson" th:field="${opgave.kontaktPerson}"
+                <input class="form-control" type="text"  id="kontaktperson" placeholder="Indtast navn" th:field="${opgave.kontaktPerson}"
                        required="true"/>
                 <label for="kundeTlf">Telefonnummer</label>
                 <input class="form-control" type="number"  id="kundeTlf" min="1" max="99999999" placeholder="0"
@@ -85,7 +84,7 @@
                 <input class="form-control" type="text"  id="email" placeholder="Indtast email" th:field="${opgave.email}"
                        required="true"/>
                 <label>Vælg dag</label>
-                <select th:field="${opgave.dag}">
+                <select class="form-control" th:field="${opgave.dag}">
                     <option value="Mandag">Mandag</option>
                     <option value="Tirsdag">Tirsdag</option>
                     <option value="Onsdag">Onsdag</option>
